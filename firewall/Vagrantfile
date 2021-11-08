@@ -1,0 +1,15 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+config.vm.define :clienteNAT do |clienteNAT|
+clienteNAT.vm.box = "bento/centos-7"
+clienteNAT.vm.network :private_network, ip: "192.168.50.4"
+clienteNAT.vm.hostname = "clienteNAT"
+end
+config.vm.define :firewallNAT do |firewallNAT|
+firewallNAT.vm.box = "bento/centos-7"
+firewallNAT.vm.network :private_network, ip: "192.168.50.3"
+firewallNAT.vm.hostname = "firewallNAT"
+end
+end
