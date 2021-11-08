@@ -1,0 +1,26 @@
+Vagrant.configure("2") do |config|
+config.vm.define :balanceador do |balanceador|
+balanceador.vm.box = "JuanSebastianMontoya/balanceador"
+balanceador.vm.network :private_network, ip: "192.168.50.30"
+balanceador.vm.hostname = "balanceador"
+end
+
+config.vm.define :balanceador2 do |balanceador2|
+balanceador2.vm.box = "JuanSebastianMontoya/balanceador"
+balanceador2.vm.network :private_network, ip: "192.168.50.40"
+balanceador2.vm.hostname = "balanceador2"
+end
+
+config.vm.define :maquina1 do |maquina1|
+maquina1.vm.box = "brayanHinestroza/maquina1"
+maquina1.vm.network :private_network, ip: "192.168.50.10"
+maquina1.vm.hostname = "maquina1"
+end
+
+config.vm.define :maquina2 do |maquina2|
+maquina2.vm.box = "brayanHinestroza/maquina2"
+maquina2.vm.network :private_network, ip: "192.168.50.20"
+maquina2.vm.hostname = "maquina2"
+end
+
+end

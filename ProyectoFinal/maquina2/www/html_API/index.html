@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>MAQUINA 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+</head>
+
+<body onload="load();">
+  <p>MAQUINA2.</p>
+	<div id="data"> </div>
+  <script >
+function load() {
+    fetch('http://192.168.50.20/employees')
+        .then(response =>{
+  //      console.log(typeof(response)) 
+//	document.getElementById("data").innerHtml = `<p> ${response} </p>` 
+	  response.json()}
+        )
+        .then(data => {
+            console.log(data)
+           // document.getElementById("data").innerHtml = `<p> ${data} </p>`
+        })
+}
+
+  </script>
+</body>
+</html>
