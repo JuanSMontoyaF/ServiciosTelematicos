@@ -1,0 +1,18 @@
+Vagrant.configure("2") do |config|
+config.vm.define :streama do |streama|
+streama.vm.box = "bento/centos-7.9"
+streama.vm.network :private_network, ip: "192.168.50.2"
+streama.vm.hostname = "streama"
+streama.vm.provision "shell", path: "./Scriptstreama.sh"
+end
+
+config.vm.define :firewall do |firewall|
+firewall.vm.box = "bento/centos-7.9"
+firewall.vm.network :public_network, ip: "192.168.1.100"
+firewall.vm.network :private_network, ip: "192.168.50.4"
+firewall.vm.network :forwarded_port, guest: 80, host: 5000
+firewall.vm.hostname = "firewall"
+firewall.vm.provision "shell", path: "./Scriptfirewall.sh"
+end
+
+end
